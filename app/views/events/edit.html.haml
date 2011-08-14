@@ -1,0 +1,8 @@
+%h1 Edit Event
+= link_to "back to event page", event_path(@event.id)
+= form_for @event, :as => :event, :url => { :action => "update" } do |e|
+  = e.text_field :event_title
+  = e.text_field :event_cost
+  = e.text_field :event_planner
+  
+  = submit_tag "Update"

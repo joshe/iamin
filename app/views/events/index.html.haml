@@ -1,0 +1,4 @@
+%h4 this is a test
+= link_to "New event", new_event_path
+- @events.each do |e|
+  %p= link_to e.event_title, event_path(e.id)

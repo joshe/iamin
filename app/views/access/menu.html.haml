@@ -1,0 +1,8 @@
+- @page_title = "Admin Menu"
+
+.menu
+  %h2 Admin menu
+  %ul.identity
+    %li= link_to "Manage events", events_path
+    %li= link_to "Manage users", "#"
+    %li= link_to "Logout", :action => 'logout'
