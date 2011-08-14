@@ -26,6 +26,7 @@ class ApplicationController < ActionController::Base
        redirect_away(:controller => "access", :action => "login")
        return false # halts the before_filter
      else
+       @u = User.find(session[:user_id])
        return true
      end
    end
