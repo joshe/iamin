@@ -1,12 +1,14 @@
 class AccessController < ApplicationController
   
+  before_filter :confirm_logged_in, :except => [:login, :attempt_login, :logout]
+  
   def index
     menu
     render 'menu' 
   end
 
   def new
-	@user = User.new
+	  @user = User.new
   end
 
   def create
@@ -28,11 +30,14 @@ class AccessController < ApplicationController
   end
   
   def attempt_login
-    authorized_user = User.authenticate(params[:username], params[:password])
+    @incomingController = params[:controller]
+    @incomingAction = params[:action]
+    
+    authorized_user = User.authenticate(params[:email], params[:password])
     if authorized_user
-      # TODO: mark user as logged in
-      flash[:message] = "You are now logged in."
-      redirect_to :action => 'menu'
+      session[:user_id] = authorized_user.id
+      session[:email] = authorized_user.email
+      redirect_back(:action => 'index')
     else
       flash[:message] = "Invalid username/password combination"
       redirect_to :action => 'login'
@@ -40,7 +45,8 @@ class AccessController < ApplicationController
   end
   
   def logout
-    # TODO: mark user as logged out
+    session[:user_id] = nil
+    session[:email] = nil
     flash[:message] = "You have been logged out."
     redirect_to :action => "login"
   end

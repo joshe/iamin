@@ -2,6 +2,7 @@
 
 .menu
   %h2 Admin menu
+  .username= "Logged in as #{session[:email]}"
   %ul.identity
     %li= link_to "Manage events", events_path
     %li= link_to "Manage users", "#"

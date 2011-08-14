@@ -1,7 +1,10 @@
 class EventsController < ApplicationController
   
+  before_filter :confirm_logged_in
+  
   def index
     @events = Event.all
+    session[:return_to] ||= request.referer
   end
   
   def new
