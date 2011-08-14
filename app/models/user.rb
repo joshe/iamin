@@ -1,14 +1,15 @@
+require 'digest/sha1'
+
 class User < ActiveRecord::Base
 
   has_and_belongs_to_many :events
   
   attr_accessor :password
   
-  validates_length_of :password, :within => 8..25, :on => :create
+  validates_length_of :password, :within => 6..25, :on => :create
   
   before_save :create_hashed_password
   after_save :clear_password
-  
   
   attr_protected :hashed_password, :salt
   
@@ -36,7 +37,7 @@ class User < ActiveRecord::Base
   private
   def create_hashed_password
     unless password.blank?
-      self.salt = User.make_salt(username) if salt.blank?
+      self.salt = User.make_salt(:email) if salt.blank?
       self.hashed_password = User.hash_with_salt(password, salt)
     end
   end

@@ -4,6 +4,20 @@ class AccessController < ApplicationController
     menu
     render 'menu' 
   end
+
+  def new
+	@user = User.new
+  end
+
+  def create
+	@user = User.new(params[:user])
+    if @user.save
+	  flash[:message] = "You have successfully created your account"
+      redirect_to events_path
+    else
+      render :action => "new"
+    end
+  end
   
   def menu
     #display text & links

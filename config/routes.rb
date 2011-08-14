@@ -1,7 +1,9 @@
 Iamin::Application.routes.draw do
     
   get "access/login"
-  
+
+  match 'createAccount' => 'access#new'
+  match 'access/create' => 'access#create'
   match 'admin' => 'access#menu'
   match 'logout' => 'access#logout'
   match 'attempt_login' => 'access#attempt_login'

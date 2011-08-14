@@ -1,0 +1,8 @@
+%h1 Create your account
+= form_for @user, :as => :user, :url => { :action => "create" } do |e|
+  = e.text_field :first_name, :placeholder => "First name"
+  = e.text_field :last_name, :placeholder => "Last name"
+  = e.text_field :email, :placeholder => "email"
+  = e.password_field :password, :placeholder => "password"
+  
+  = submit_tag "Create your account"
