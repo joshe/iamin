@@ -7,6 +7,8 @@ Iamin::Application.routes.draw do
   match 'admin' => 'access#menu'
   match 'logout' => 'access#logout'
   match 'attempt_login' => 'access#attempt_login'
+  match 'join' => 'events#join'
+  match 'unjoin' => 'events#unjoin'
 
   resources :events
 

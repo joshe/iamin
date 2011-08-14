@@ -2,4 +2,15 @@
 = link_to "< back to all events", events_path
 = link_to "edit", edit_event_path
 %p= "Cost: $#{@event.event_cost}"
-%p= "Cost pp: $#{@event_cpp}"
+%p= "Cost per person: $#{@event_cpp}"
+%p= "Number of users: #{@event_user_count}"
+
+%ul
+- @event_users.each do |eu|
+  %li
+    = "#{eu.first_name} #{eu.last_name}"
+    - if eu.id == session[:user_id]
+      = link_to "unjoin", :action => "unjoin", :id => @event.id
+
+
+= button_to "Join this event", :action => "join", :id => @event.id

@@ -23,7 +23,9 @@ class EventsController < ApplicationController
   def show
     @id = params[:id]
     @event = Event.find(params[:id])
-    @event_cpp = @event.event_cost / 6
+    @event_user_count = @event.users.size
+    @event_cpp = @event.event_cost / @event_user_count
+    @event_users = @event.users
   end
 
   def edit
@@ -39,6 +41,30 @@ class EventsController < ApplicationController
       flash[:message] = "Oops, didn't save successfully"
       render edit_event_path
     end
+  end
+  
+  def join
+    @event = Event.find(params[:id])
+    @user = User.find(session[:user_id])
+    unless !@event.users.find_by_id(@user.id).nil? 
+      if @event.users << @user
+        flash[:message] = "You have joined this event"
+      else
+        flash[:message] = "Oops. There was a problem joining this event."
+      end
+    else
+      flash[:message] = "You've already joined this goal"
+    end
+    redirect_to event_path(@event.id)
+  end
+  
+  def unjoin
+    @event = Event.find(params[:id])
+    @user = User.find(session[:user_id])
+    if @event.users.delete(@user)
+      flash[:message] = "You've been removed from this event."
+    end
+    redirect_to event_path(@event.id)
   end
 
 end
