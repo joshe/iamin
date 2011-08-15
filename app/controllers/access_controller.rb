@@ -13,12 +13,17 @@ class AccessController < ApplicationController
 
   def create
 	@user = User.new(params[:user])
-    if @user.save
-	  flash[:message] = "You have successfully created your account"
-      redirect_to events_path
-    else
-      render :action => "new"
-    end
+	if User.find_by_email(@user.email).nil?
+	    if @user.save
+		  flash[:message] = "You have successfully created your account"
+	      redirect_to events_path
+	    else
+	      render :action => "new"
+	    end
+	else
+		flash[:message] = "Ooops, we already have a user with that email address. Maybe it's you?"
+		render :action => "new"
+	end
   end
   
   def menu
@@ -37,7 +42,7 @@ class AccessController < ApplicationController
     if authorized_user
       session[:user_id] = authorized_user.id
       session[:email] = authorized_user.email
-      redirect_back(:action => 'index')
+      redirect_back(events_path)
     else
       flash[:message] = "Invalid username/password combination"
       redirect_to :action => 'login'
