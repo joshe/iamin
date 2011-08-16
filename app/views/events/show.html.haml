@@ -10,7 +10,7 @@
   %li
     = "#{eu.first_name} #{eu.last_name}"
     - if eu.id == session[:user_id]
-      = link_to "unjoin", :action => "unjoin", :id => @event.id
+      = link_to "I am out", :action => "unjoin", :id => @event.id
 
 - unless @user_is_in
-  = button_to "Join this event", :action => "join", :id => @event.id
+  = button_to "I am in", :action => "join", :id => @event.id
