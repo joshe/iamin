@@ -26,6 +26,8 @@ class EventsController < ApplicationController
     @event_user_count = @event.users.size
     @event_cpp = @event.event_cost / @event_user_count
     @event_users = @event.users
+    @user = User.find(session[:user_id])
+    @user_is_in = @event_users.include?(@user)
   end
 
   def edit

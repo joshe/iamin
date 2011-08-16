@@ -12,5 +12,5 @@
     - if eu.id == session[:user_id]
       = link_to "unjoin", :action => "unjoin", :id => @event.id
 
-
-= button_to "Join this event", :action => "join", :id => @event.id
+- unless @user_is_in
+  = button_to "Join this event", :action => "join", :id => @event.id
