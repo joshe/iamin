@@ -34,6 +34,11 @@ class AccessController < ApplicationController
     #login form
   end
   
+  def show
+    @user = User.find(params[:id])
+    # add events for this user
+  end
+  
   def attempt_login
     @incomingController = params[:controller]
     @incomingAction = params[:action]

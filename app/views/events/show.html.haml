@@ -8,7 +8,7 @@
 %ul
 - @event_users.each do |eu|
   %li
-    = "#{eu.first_name} #{eu.last_name}"
+    = link_to "#{eu.first_name} #{eu.last_name}", :controller => "access", :action => "show", :id => eu.id
     - if eu.id == session[:user_id]
       = link_to "I am out", :action => "unjoin", :id => @event.id
 
