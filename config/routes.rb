@@ -9,8 +9,7 @@ Iamin::Application.routes.draw do
   match 'attempt_login' => 'access#attempt_login'
   match 'join' => 'events#join'
   match 'unjoin' => 'events#unjoin'
-  #match 'profile/:id' => 'access#show'
-	match 'profile/:first_name/:last_name' => 'access#show'
+  match 'profile/:id' => 'access#show'
 
   resources :events
 
