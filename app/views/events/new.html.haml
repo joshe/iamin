@@ -1,7 +1,2 @@
-%h1 New Event
-= form_for @event, :as => :event, :url => { :action => "create" } do |e|
-  = e.text_field :event_title, :placeholder => "Event title"
-  = e.text_field :event_cost, :placeholder => "Cost"
-  = e.text_field :event_planner, :placeholder => "Planner"
-  
-  = submit_tag "Save"
+%h4 New Event
+= render "event_fields"
