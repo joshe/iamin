@@ -14,12 +14,12 @@ class AccessController < ApplicationController
   def create
 	@user = User.new(params[:user])
 	if User.find_by_email(@user.email).nil?
-	    if @user.save
-		  flash[:message] = "You have successfully created your account"
-	      redirect_to events_path
-	    else
-	      render :action => "new"
-	    end
+	  if @user.save
+	 	flash[:message] = "You have successfully created your account"
+	    redirect_to events_path
+	  else
+	    render :action => "new"
+	  end
 	else
 		flash[:message] = "Ooops, we already have a user with that email address. Maybe it's you?"
 		render :action => "new"

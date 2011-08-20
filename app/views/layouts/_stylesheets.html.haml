@@ -1,5 +1,8 @@
 -# CSS: implied media="all"
 = stylesheet_link_tag 'style', :media => 'all'
+= stylesheet_link_tag 'skeleton_base', :media => 'all'
+= stylesheet_link_tag 'skeleton_layout', :media => 'all'
+= stylesheet_link_tag 'skeleton', :media => 'all'
 
 -# Append your own using content_for :stylesheets
 = yield :stylesheets

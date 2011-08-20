@@ -6,7 +6,11 @@ class User < ActiveRecord::Base
   
   attr_accessor :password
   
+	validates_uniqueness_of :email
   validates_length_of :password, :within => 6..25, :on => :create
+	validates_presence_of :email, :password, :first_name, :last_name
+	validates_format_of :email,
+	    :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
   
   before_save :create_hashed_password
   after_save :clear_password

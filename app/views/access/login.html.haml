@@ -3,13 +3,8 @@
 = link_to "Create an account", :action => "new"
 .login
   = form_tag :action => "attempt_login" do
-    %table
-      %tr
-        %td= label_tag(:email)
-        %td= text_field_tag(:email)
-      %tr
-        %td= label_tag(:password)
-        %td= password_field_tag(:password)
-      %tr
-        %td &nbsp;
-        %td= submit_tag "Sign in"
+    = label_tag(:email)
+    = text_field_tag(:email)
+    = label_tag(:password)
+    = password_field_tag(:password)
+    = submit_tag "Sign in"

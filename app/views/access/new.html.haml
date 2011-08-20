@@ -1,5 +1,8 @@
-%h1 Create your account
+%h4 Create your account
 = form_for @user, :as => :user, :url => { :action => "create" } do |e|
+  - if @user.errors.any?
+    - @user.errors.full_messages.each do |msg|
+      .error= msg
   = e.text_field :first_name, :placeholder => "First name"
   = e.text_field :last_name, :placeholder => "Last name"
   = e.text_field :email, :placeholder => "email"
