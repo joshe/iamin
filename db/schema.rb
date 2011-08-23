@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20110823010039) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "threshold",     :default => 1
-    t.integer  "max"
+    t.integer  "max",           :default => 0
   end
 
   create_table "events_users", :id => false, :force => true do |t|
