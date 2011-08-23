@@ -15,7 +15,9 @@ class AccessController < ApplicationController
 	@user = User.new(params[:user])
 	if User.find_by_email(@user.email).nil?
 	  if @user.save
-	 	flash[:message] = "You have successfully created your account"
+	 	  flash[:message] = "You have successfully created your account"
+	 	  session[:user_id] = @user.id
+	 	  session[:email] = @user.email
 	    redirect_to events_path
 	  else
 	    render :action => "new"
