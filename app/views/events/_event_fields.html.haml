@@ -1,6 +1,9 @@
-= form_for @event, :as => :event, :url => { :action => "create" } do |e|
-  = e.text_field :event_title, :placeholder => "Event title"
-  = e.text_field :event_cost, :placeholder => "Cost"
-  = e.text_field :event_planner, :placeholder => "Planner"
-  
-  = submit_tag "Save"
+= e.text_field :event_title, :placeholder => "Event title"
+= e.text_field :event_cost, :placeholder => "Cost"
+= e.text_field :event_planner, :placeholder => "Planner"
+= e.label :threshold
+= e.select :threshold,  (1..100).collect { |t| [t, t]}
+= e.label :max
+= e.select :max, @max, html_options = { :class => "max_select"}
+
+= submit_tag "Save"
