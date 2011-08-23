@@ -30,22 +30,14 @@ class EventsController < ApplicationController
     @user = User.find(session[:user_id])
     @user_is_in = @event_users.include?(@user)
     
-    if @event.threshold > @event_user_count
-      @event_status = "nogo"
+    if @event.max <= @event_user_count and @event.max != 0
+      @event_status = :hitMax
+    elsif @event.threshold > @event_user_count
+      @event_status = :nogo
       @event_users_remaining = @event.threshold - @event_user_count
-      if @event_users_remaining == 1
-        @event_users_remaining = "#{@event_users_remaining} person"
-      else
-        @event_users_remaining = "#{@event_users_remaining} people"
-      end
-    elsif @event.max <= @event_user_count
-      if @event.max == 0
-        @event_status = "go"
-      else
-        @event_status = "hitMax"
-      end
+      @event_users_remaining = (@event_users_remaining == 1) ? "#{@event_users_remaining} person" : "#{@event_users_remaining} people"
     else
-      @event_status = "go"
+      @event_status = :go
     end
   end
 
