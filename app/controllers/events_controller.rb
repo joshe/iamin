@@ -74,6 +74,9 @@ class EventsController < ApplicationController
     @user = User.find(session[:user_id])
     unless !@event.users.find_by_id(@user.id).nil? 
       if @event.users << @user
+        if @user.email != @event.event_planner
+          UserMailer.user_is_in_email(@user, @event).deliver
+        end
         flash[:message] = "You have joined this event"
       else
         flash[:message] = "Oops. There was a problem joining this event."

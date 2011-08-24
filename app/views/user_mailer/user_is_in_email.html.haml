@@ -1,0 +1,6 @@
+%html
+  %body
+    %h4= "Hey, #{@planner.first_name}"
+    .main
+      = "#{@user.first_name} #{@user.last_name} (#{@user.email}) just joined your event. To see who's in "
+      = link_to "view the event", @event_url 
