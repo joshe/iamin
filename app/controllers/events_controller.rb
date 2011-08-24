@@ -10,6 +10,7 @@ class EventsController < ApplicationController
   
   def new
     @event = Event.new
+    @user_email = session[:email]
   end
   
   def create
@@ -43,6 +44,7 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
+    @user_email = session[:email]
   end
   
   def update
