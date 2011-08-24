@@ -15,6 +15,8 @@ class AccessController < ApplicationController
 	@user = User.new(params[:user])
 	if User.find_by_email(@user.email).nil?
 	  if @user.save
+	    UserMailer.welcome_email(@user).deliver
+	    
 	 	  flash[:message] = "You have successfully created your account"
 	 	  session[:user_id] = @user.id
 	 	  session[:email] = @user.email
