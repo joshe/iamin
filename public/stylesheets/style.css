@@ -253,6 +253,11 @@ nav ul, nav li {
   clear: both;
 }
 
+@font-face {
+  font-family: "Chunk";
+  src: url('/fonts/chunk/Chunk.ttf') format('truetype'), url('/fonts/chunk/Chunk.otf') format('opentype');
+}
+
 /* line 8, ../../app/stylesheets/partials/_page.scss */
 body, select, input, textarea {
   color: #444444;
@@ -301,6 +306,89 @@ input:invalid, textarea:invalid {
 .no-boxshadow input:invalid,
 .no-boxshadow textarea:invalid {
   background-color: #f0dddd;
+}
+
+/* line 49, ../../app/stylesheets/partials/_page.scss */
+body {
+  background-color: #fefefe;
+  color: #444;
+  font: 14px/21px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* Fix for webkit rendering */
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* line 60, ../../app/stylesheets/partials/_page.scss */
+#container {
+  width: 940px;
+  margin: 0 auto;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+}
+
+/* line 76, ../../app/stylesheets/partials/_page.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Chunk";
+  font-size: 1.5em;
+}
+
+/* Typography */
+/* line 82, ../../app/stylesheets/partials/_page.scss */
+h1, h2, h3, h4, h5, h6 {
+  color: #181818;
+  font-family: "Chunk", "Georgia", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+}
+
+/* line 86, ../../app/stylesheets/partials/_page.scss */
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  font-weight: inherit;
+}
+
+/* line 87, ../../app/stylesheets/partials/_page.scss */
+h1 {
+  font-size: 46px;
+  line-height: 50px;
+  margin-bottom: 14px;
+}
+
+/* line 88, ../../app/stylesheets/partials/_page.scss */
+h2 {
+  font-size: 35px;
+  line-height: 40px;
+  margin-bottom: 10px;
+}
+
+/* line 89, ../../app/stylesheets/partials/_page.scss */
+h3 {
+  font-size: 28px;
+  line-height: 34px;
+  margin-bottom: 8px;
+}
+
+/* line 90, ../../app/stylesheets/partials/_page.scss */
+h4 {
+  font-size: 21px;
+  line-height: 30px;
+  margin-bottom: 4px;
+}
+
+/* line 91, ../../app/stylesheets/partials/_page.scss */
+h5 {
+  font-size: 17px;
+  line-height: 24px;
+}
+
+/* line 92, ../../app/stylesheets/partials/_page.scss */
+h6 {
+  font-size: 14px;
+  line-height: 21px;
+}
+
+/* line 93, ../../app/stylesheets/partials/_page.scss */
+.subheader {
+  color: #777;
 }
 
 /*/mediaquery*/

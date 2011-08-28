@@ -3,10 +3,10 @@
 
 
 /* TEAM */
-  <your title>: <your name>
+  <your title>: Josh Evnin
   Site: 
-  Twitter: 
-  Location: 
+  Twitter: @jevnin
+  Location: Chicago, IL, USA
 
 /* THANKS */
   Names (& URL): 
