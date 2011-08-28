@@ -10,7 +10,8 @@
   .eventStatus.go= "This event is on."
 
 %p= "Cost: $#{@event.event_cost}"
-%p= "Cost per person: $#{@event_cpp}"
+- unless @event_user_count == 0
+  %p= "Cost per person: $#{@event_cpp}"
 %p= "Number of users: #{@event_user_count}"
 
 %ul
