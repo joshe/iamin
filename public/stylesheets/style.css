@@ -346,6 +346,11 @@ header div.userInfo {
   text-align: right;
 }
 
+/* line 88, ../../app/stylesheets/partials/_page.scss */
+footer {
+  text-align: right;
+}
+
 /* line 1, ../../app/stylesheets/partials/_typography.scss */
 h1, h2, h3, h4, h5, h6 {
   color: #181818;
