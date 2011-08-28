@@ -169,21 +169,21 @@ button::-moz-focus-inner {
 
 /* line 99, ../../../../.rvm/gems/ruby-1.9.2-p180/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_styles.scss */
 ::-moz-selection {
-  background: #ff5e99;
+  background: #cccccc;
   color: white;
   text-shadow: none;
 }
 
 /* line 100, ../../../../.rvm/gems/ruby-1.9.2-p180/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_styles.scss */
 ::selection {
-  background: #ff5e99;
+  background: #cccccc;
   color: white;
   text-shadow: none;
 }
 
 /* line 105, ../../../../.rvm/gems/ruby-1.9.2-p180/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_styles.scss */
 a:link {
-  -webkit-tap-highlight-color: #ff5e99;
+  -webkit-tap-highlight-color: #cccccc;
 }
 
 /* line 118, ../../../../.rvm/gems/ruby-1.9.2-p180/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_styles.scss */
@@ -327,66 +327,81 @@ body {
   background-color: #fff;
 }
 
-/* line 76, ../../app/stylesheets/partials/_page.scss */
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Chunk";
-  font-size: 1.5em;
+/* line 68, ../../app/stylesheets/partials/_page.scss */
+header {
+  clear: both;
+  width: 940px;
+  float: left;
+  margin-bottom: 15px;
+}
+/* line 74, ../../app/stylesheets/partials/_page.scss */
+header h6.logo {
+  float: left;
+  width: 150px;
+}
+/* line 79, ../../app/stylesheets/partials/_page.scss */
+header div.userInfo {
+  float: right;
+  min-width: 200px;
+  text-align: right;
 }
 
-/* Typography */
-/* line 82, ../../app/stylesheets/partials/_page.scss */
+/* line 1, ../../app/stylesheets/partials/_typography.scss */
 h1, h2, h3, h4, h5, h6 {
   color: #181818;
   font-family: "Chunk", "Georgia", Helvetica, Arial, sans-serif;
   font-weight: normal;
 }
 
-/* line 86, ../../app/stylesheets/partials/_page.scss */
+/* line 5, ../../app/stylesheets/partials/_typography.scss */
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   font-weight: inherit;
 }
 
-/* line 87, ../../app/stylesheets/partials/_page.scss */
+/* line 6, ../../app/stylesheets/partials/_typography.scss */
 h1 {
   font-size: 46px;
   line-height: 50px;
   margin-bottom: 14px;
+  text-shadow: rgba(204, 204, 204, 0.8) 0px 1px 3px;
 }
 
-/* line 88, ../../app/stylesheets/partials/_page.scss */
+/* line 7, ../../app/stylesheets/partials/_typography.scss */
 h2 {
   font-size: 35px;
   line-height: 40px;
   margin-bottom: 10px;
+  text-shadow: rgba(204, 204, 204, 0.8) 0px 1px 3px;
 }
 
-/* line 89, ../../app/stylesheets/partials/_page.scss */
+/* line 8, ../../app/stylesheets/partials/_typography.scss */
 h3 {
   font-size: 28px;
   line-height: 34px;
   margin-bottom: 8px;
+  text-shadow: rgba(204, 204, 204, 0.8) 0px 1px 3px;
 }
 
-/* line 90, ../../app/stylesheets/partials/_page.scss */
+/* line 9, ../../app/stylesheets/partials/_typography.scss */
 h4 {
   font-size: 21px;
   line-height: 30px;
   margin-bottom: 4px;
 }
 
-/* line 91, ../../app/stylesheets/partials/_page.scss */
+/* line 10, ../../app/stylesheets/partials/_typography.scss */
 h5 {
   font-size: 17px;
   line-height: 24px;
 }
 
-/* line 92, ../../app/stylesheets/partials/_page.scss */
+/* line 11, ../../app/stylesheets/partials/_typography.scss */
 h6 {
   font-size: 14px;
   line-height: 21px;
 }
 
-/* line 93, ../../app/stylesheets/partials/_page.scss */
+/* line 12, ../../app/stylesheets/partials/_typography.scss */
 .subheader {
   color: #777;
 }

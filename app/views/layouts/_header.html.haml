@@ -1,4 +1,5 @@
-%h6 Welcome to iamin
+%h6.logo Welcome to iamin
 - unless session[:user_id].nil?
-  .user= "Hi #{@u.first_name}"
-  = link_to 'Logout', :controller => "access", :action => "logout"
+  .userInfo
+    %span.user= "Hi #{@u.first_name}"
+    = link_to 'Logout', :controller => "access", :action => "logout"
