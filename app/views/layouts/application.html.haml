@@ -1,6 +1,7 @@
 !!! 5
 -# http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither
--ie_html :class => 'no-js', :lang => 'en' do
+-# itemscope and itemtype are for g+ like button on event pages
+-ie_html :class => 'no-js', :lang => 'en', :itemscope => "", :itemtype => "http://schema.org/Event" do
   %head
     -# To render a different stylesheet partial inside the head (i.e. for admin layout)
     -# just copy _stylesheets.html.haml, and point to that partial instead.
