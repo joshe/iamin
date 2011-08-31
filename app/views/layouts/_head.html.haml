@@ -14,17 +14,19 @@
 %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }/
 
 -# Facebook like button info
-%meta{ :property => "og:title", :content => "iamin"}
-%meta{ :property => "og:type", :content => "activity"}
-%meta{ :property => "og:url", :content => request.url}
-%meta{ :property => "og:image", :content => "#{request.url}/images/test.jpg"}
-%meta{ :property => "og:site_name", :content => "iamin"}
-%meta{ :property => "og:admins", :content => "6821895"}
+- unless @event.nil?
+  %meta{ :property => "og:title", :content => "iamin"}
+  %meta{ :property => "og:type", :content => "activity"}
+  %meta{ :property => "og:url", :content => request.url}
+  %meta{ :property => "og:image", :content => "#{request.url}/images/test.jpg"}
+  %meta{ :property => "og:site_name", :content => "iamin"}
+  %meta{ :property => "og:admins", :content => "6821895"}
 
 -# Google plus one button info
-%meta{ :itemprop => "name", :content => "#{@event.event_title}"}
-%meta{ :itemprop => "description", :content => "This is the description of the event"}
-%meta{ :itemprop => "image", :content => "#{request.url}/images/test.jpg"}
+- unless @event.nil?
+  %meta{ :itemprop => "name", :content => "#{@event.event_title}"}
+  %meta{ :itemprop => "description", :content => "This is the description of the event"}
+  %meta{ :itemprop => "image", :content => "#{request.url}/images/test.jpg"}
 
 -# Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons
 

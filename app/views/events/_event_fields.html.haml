@@ -7,4 +7,11 @@
 = e.label :max
 = e.select :max, @max, html_options = { :class => "max_select"}
 
+= e.label :event_date
+= e.datetime_select :event_date
+
+= e.label :event_deadline, "Deadline"
+= e.date_select :event_deadline
+
+
 = submit_tag "Save"

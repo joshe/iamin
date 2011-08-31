@@ -9,7 +9,7 @@ class EventsController < ApplicationController
   end
   
   def new
-    @event = Event.new
+    @event = Event.new(:event_date => Date.today+7, :event_deadline => Date.today+6)
     @user_email = session[:email]
   end
   
