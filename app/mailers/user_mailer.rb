@@ -1,12 +1,12 @@
 class UserMailer < ActionMailer::Base
-  default :from => "theTeam@iamin.com"
+  default :from => "theTeam@joinerous.com"
   
   def welcome_email(user)
     @user = user
     email_with_name = "#{@user.first_name} #{@user.last_name} <#{@user.email}>"
     @url= "http://glowing-cloud-293.heroku.com/access/login"
     mail(:to => email_with_name,
-         :subject => "Welcome to iamin" )
+         :subject => "Welcome to Joinerous" )
   end
   
   def user_is_in_email(user, event)
