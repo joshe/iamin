@@ -23,6 +23,7 @@
 
 - unless @user_is_in
   = button_to "I am in", :action => "join", :id => @event.id
+  = "If you join, each person will pay a max of $#{@your_share_will_be}"
 
 .spread
   .twshare.left
