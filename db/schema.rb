@@ -10,16 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110831114511) do
+ActiveRecord::Schema.define(:version => 20110902131831) do
 
   create_table "events", :force => true do |t|
     t.string   "event_title"
-    t.float    "event_cost"
+    t.decimal  "event_cost",     :precision => 8, :scale => 2
     t.string   "event_planner"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "threshold",      :default => 1
-    t.integer  "max",            :default => 0
+    t.integer  "threshold",                                    :default => 1
+    t.integer  "max",                                          :default => 0
     t.datetime "event_date"
     t.datetime "event_deadline"
   end
