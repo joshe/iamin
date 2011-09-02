@@ -4,7 +4,7 @@ class UserMailer < ActionMailer::Base
   def welcome_email(user)
     @user = user
     email_with_name = "#{@user.first_name} #{@user.last_name} <#{@user.email}>"
-    @url= "http://glowing-cloud-293.heroku.com/access/login"
+    @url= "http://joinerous.com/access/login"
     mail(:to => email_with_name,
          :subject => "Welcome to Joinerous" )
   end
@@ -15,7 +15,7 @@ class UserMailer < ActionMailer::Base
     planner_email_with_name = "#{@planner.first_name} #{@planner.last_name} <#{@planner.email}>"
     @user = user
     user_email_with_name = "#{@user.first_name} #{@user.last_name} <#{@user.email}>"
-    @event_url = "http://glowing-cloud-293.heroku.com/events/#{event.id}"
+    @event_url = "http://joinerous.com/events/#{event.id}"
     mail( :from => user_email_with_name,
           :to => planner_email_with_name,
           :subject => "#{@user.first_name} #{@user.last_name} is in!")
