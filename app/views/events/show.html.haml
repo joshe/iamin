@@ -1,7 +1,6 @@
 %h4= @event.event_title 
 = link_to "< back to all events", events_path
 = link_to "edit", edit_event_path
-= @event_status
 - if @event_status == :nogo
   .eventStatus.nogo= "This event is currently a no go. It still needs #{@event_users_remaining} to join."
 - elsif @event_status == :hitMax
@@ -25,6 +24,28 @@
   = button_to "I am in", :action => "join", :id => @event.id
   = "If you join, each person will pay a max of #{number_to_currency(@your_share_will_be, :unit => "$")}"
 
+- unless @event.address.nil?
+  .location
+    = @event.address
+  #map{ :height => "200px", :style => "height: 200px;"}
+  :javascript
+    var map = new L.Map('map');
+    var lat = #{@event.latitude};
+    var lng = #{@event.longitude};
+    var eventTitle = "#{@event.event_title}";
+    var eventAddress = "#{@event.address}";
+    var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/00d4ddd8b02f4301ae359d6c48bc97d9/997/256/{z}/{x}/{y}.png',
+        cloudmadeAttrib = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
+        cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 18, attribution: cloudmadeAttrib});
+    var loc = new L.LatLng(lat, lng); // geographical point (longitude and latitude)
+    map.setView(loc, 13).addLayer(cloudmade);
+    
+    var markerLocation = new L.LatLng(lat, lng);
+    var marker = new L.Marker(markerLocation);
+    map.addLayer(marker);
+    marker.bindPopup("<div class='mapEventTitle' style='font-size: 16px; line-height: 19px; font-weight: bold;'>" + eventTitle + "</div><div class='mapEventAddress'>" + eventAddress + "</div>").openPopup();
+    
+  
 .spread
   .twshare.left
     %a.twitter-share-button.left{"data-count" => "horizontal", "data-url" => request.url, "data-text" => "Check out #{@event.event_title} on Joinerous", :href => "http://twitter.com/share"} Tweet

@@ -26,8 +26,8 @@ class EventsController < ApplicationController
     @id = params[:id]
     @event = Event.find(params[:id])
     @event_user_count = @event.users.size
-    @event_cpp = @event.event_cost / @event_user_count
-    @your_share_will_be = @event.event_cost / (@event_user_count + 1)
+    @event_cpp = @event.event_cost.to_f / @event_user_count
+    @your_share_will_be = @event.event_cost.to_f / (@event_user_count + 1)
     @event_users = @event.users
     @user = User.find(session[:user_id])
     @user_is_in = @event_users.include?(@user)

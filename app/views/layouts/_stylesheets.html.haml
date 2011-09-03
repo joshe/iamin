@@ -3,6 +3,11 @@
 =# stylesheet_link_tag 'skeleton_base', :media => 'all'
 =# stylesheet_link_tag 'skeleton_layout', :media => 'all'
 =# stylesheet_link_tag 'skeleton', :media => 'all'
+= stylesheet_link_tag '../leaflet/leaflet.css'
+/ [if lte IE 8]
+  = stylesheet_link_tag '../leaflet/leaflet.ie.css'
+= javascript_include_tag '../leaflet/leaflet.js'
+
 
 -# Append your own using content_for :stylesheets
 = yield :stylesheets

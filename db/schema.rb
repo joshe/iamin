@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110902131831) do
+ActiveRecord::Schema.define(:version => 20110903013616) do
 
   create_table "events", :force => true do |t|
     t.string   "event_title"
@@ -22,6 +22,9 @@ ActiveRecord::Schema.define(:version => 20110902131831) do
     t.integer  "max",                                          :default => 0
     t.datetime "event_date"
     t.datetime "event_deadline"
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "events_users", :id => false, :force => true do |t|
